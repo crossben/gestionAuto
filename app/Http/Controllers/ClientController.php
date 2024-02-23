@@ -10,9 +10,13 @@ class ClientController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function signin()
     {
-        return view('users.clientLogin');
+        return view('users.clientSignIn');
+    }
+    public function login()
+    {
+        return view('users.clientLogIn');
     }
 
     /**

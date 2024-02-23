@@ -18,4 +18,6 @@ Route::get('/', function () {
     return view('base');
 });
 
-Route::get('/clientlogin', [ClientController::class, 'index'])->name('client');
+Route::get('/clientsignin', [ClientController::class, 'signin'])->name('clientsignin');
+
+Route::get('/clientlogin', [ClientController::class, 'login'])->name('clientlogin');

@@ -20,7 +20,7 @@ class ChauffeurController extends Controller
      */
     public function index()
     {
-        //
+        return view('auth.add_chauffeur');
     }
 
     /**
@@ -39,19 +39,26 @@ class ChauffeurController extends Controller
         $request->validate([
             'nom' => ['required', 'string', 'max:255'], 
             'prenom' => ['required', 'string', 'max:255'], 
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.Chauffeur::class],
             'adresse' => ['required', 'string', 'max:255',],
+            'experience' => ['required', 'string', 'max:255'],
             'tel' => ['required', 'string', 'max:255'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'num_permis' => ['required', 'string', 'max:255'],
+            'date_emission' => ['required', 'string', 'max:255'],
+            'date_expiration' => ['required', 'string', 'max:255'],
+            'categorie_permis' => ['required', 'string', 'max:255'],
         ]);
 
         $user = Chauffeur::create([
             'nom' => $request->nom,
             'prenom' => $request->prenom,
-            'email' => $request->email,
             'adresse' => $request->adresse,
+            'experience' => $request->experience,
             'tel' => $request->tel,
-            'password' => Hash::make($request->password),
+            'num_permis' => $request->num_permis,
+            'date_emission' => $request->date_emission,
+            'date_expiration' => $request->date_expiration,
+            'categorie_permis' => $request->categorie_permis,
+            
         ]);
 
         event(new Registered($user));
@@ -74,7 +81,7 @@ class ChauffeurController extends Controller
      */
     public function edit(Chauffeur $chauffeur)
     {
-        //
+        
     }
 
     /**

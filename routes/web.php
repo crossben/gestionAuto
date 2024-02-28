@@ -27,8 +27,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
 Route::get('/create', [ChauffeurController::class, 'create']);
+Route::get('/index', [ChauffeurController::class, 'index'])->name('add_chauffeur');
+});
+
+
 
 require __DIR__.'/auth.php';

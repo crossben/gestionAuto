@@ -20,7 +20,7 @@ class ChauffeurController extends Controller
      */
     public function index()
     {
-        return view('auth.add_chauffeur');
+        return view('auth.chauffeur.add_chauffeur');
     }
 
     /**
@@ -36,6 +36,8 @@ class ChauffeurController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        $chauffeur = new Chauffeur();
+
         $request->validate([
             'nom' => ['required', 'string', 'max:255'], 
             'prenom' => ['required', 'string', 'max:255'], 
@@ -48,7 +50,7 @@ class ChauffeurController extends Controller
             'categorie_permis' => ['required', 'string', 'max:255'],
         ]);
 
-        $user = Chauffeur::create([
+        $chauffeur = Chauffeur::create([
             'nom' => $request->nom,
             'prenom' => $request->prenom,
             'adresse' => $request->adresse,
@@ -61,9 +63,9 @@ class ChauffeurController extends Controller
             
         ]);
 
-        event(new Registered($user));
+        event(new Registered($chauffeur));
 
-        Auth::login($user);
+        Auth::login($chauffeur);
 
         return redirect(RouteServiceProvider::HOME);
     }

@@ -1,7 +1,7 @@
 {{-- Formulaire d' Ajout de Chauffeur --}}
 
 <x-guest-layout>
-    <form method="POST" action="{{ route('index') }}">
+    <form method="POST" action="{{ route('add_chauffeur') }}">
         @csrf
 
         <!-- Name -->

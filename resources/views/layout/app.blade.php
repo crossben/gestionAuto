@@ -42,7 +42,7 @@
                                 GESTION CHAUFFEUR
                             </a>
                             <ul class="dropdown-menu">
-                                e<li><a class="dropdown-item" href="{{ route('add_chauffeur') }}">Ajouter Chauffeur</a></li>
+                                <li><a class="dropdown-item" href="{{ route('add_chauffeur') }}">Ajouter Chauffeur</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>

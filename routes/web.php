@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/create', [ChauffeurController::class, 'create']);
 Route::get('/index', [ChauffeurController::class, 'index'])->name('add_chauffeur');
+Route::post('/index', [ChauffeurController::class, 'store'])->name('store_chauffeur');
 });
 
 

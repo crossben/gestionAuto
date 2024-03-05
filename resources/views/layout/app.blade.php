@@ -42,15 +42,15 @@
                                 GESTION CHAUFFEUR
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{ route('add_chauffeur') }}">Ajouter Chauffeur</a></li>
+                                <li><a class="dropdown-item" href="{{ route('ajouter_chauffeur') }}">Ajouter Chauffeur</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="{{route('ajouter_chauffeur')}}">something else</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                            <a class="nav-link" aria-disabled="true">zbi</a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">

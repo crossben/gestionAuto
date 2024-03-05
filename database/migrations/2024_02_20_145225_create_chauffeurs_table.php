@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('date_emission');
             $table->string('date_expiration');
             $table->string('categorie_permis');
+            
             $table->timestamps();
         });
     }

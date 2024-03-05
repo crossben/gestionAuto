@@ -3,102 +3,96 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\Chauffeur;
-use Illuminate\View\View;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rules;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Auth\Events\Registered;
-use App\Providers\RouteServiceProvider;
 
 class ChauffeurController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        return view('auth.add_chauffeur');
+        $afficher = Chauffeur::all();
+        return view('chauffeurs',compact('afficher'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function ajouter_chauffeur()
     {
-        return view('create');
+        return view('ajouter');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request): RedirectResponse
+    public function ajouter_chauffeur_traitement(Request $request)
     {
-        $chauffeur = new Chauffeur();
-
         $request->validate([
-            'nom' => ['required', 'string', 'max:255'], 
-            'prenom' => ['required', 'string', 'max:255'], 
-            'adresse' => ['required', 'string', 'max:255',],
-            'experience' => ['required', 'string', 'max:255'],
-            'tel' => ['required', 'string', 'max:255'],
-            'num_permis' => ['required', 'string', 'max:255'],
-            'date_emission' => ['required', 'string', 'max:255'],
-            'date_expiration' => ['required', 'string', 'max:255'],
-            'categorie_permis' => ['required', 'string', 'max:255'],
+            'nom' =>'required',
+            'prenom' =>'required',
+            'adresse'=> "required",
+            'tel'=> "required",
+            'experience'=> "required",
+            'num_permis'=> "required",
+            'date_emission'=> "required",
+            'date_expiration'=> "required",
+            'categorie_permis'=> "required"
         ]);
 
-        $chauffeur = Chauffeur::create([
-            'nom' => $request->nom,
-            'prenom' => $request->prenom,
-            'adresse' => $request->adresse,
-            'experience' => $request->experience,
-            'tel' => $request->tel,
-            'num_permis' => $request->num_permis,
-            'date_emission' => $request->date_emission,
-            'date_expiration' => $request->date_expiration,
-            'categorie_permis' => $request->categorie_permis,
-            
-        ]);
+        $chauffeur = new Chauffeur();
+        $chauffeur->nom = $request->nom;
+        $chauffeur->prenom = $request->prenom;
+        $chauffeur->adresse = $request->adresse;
+        $chauffeur->tel = $request->tel;
+        $chauffeur->experience = $request->experience;
+        $chauffeur->num_permis = $request->num_permis;
+        $chauffeur->date_emission = $request->date_emission;
+        $chauffeur->date_expiration = $request->date_expiration;
+        $chauffeur->categorie_permis = $request->categorie_permis;
+        $chauffeur->save();
 
-        event(new Registered($chauffeur));
+        return redirect('/ajouter')->with('status : ','le chauffeur a été ajouté avec succès.');
 
-        Auth::login($chauffeur);
-
-        return redirect(RouteServiceProvider::HOME);
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Chauffeur $chauffeur)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Chauffeur $chauffeur)
+    public function rechercher()
     {
         
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Chauffeur $chauffeur)
-    {
-        //
+    public function modifier_chauffeur($id) {
+        $changer = Chauffeur::find($id);
+
+        return view('modifier',compact('changer'));
+    }
+    public function modifier_chauffeur_traitement(Request $request){
+        $request->validate([
+            'nom' =>'required',
+            'prenom' =>'required',
+            'addresse'=> "required",
+            'tel'=> "required",
+            'experience'=> "required",
+            'num_permis'=> "required",
+            'date_expiration'=> "required",
+            'date_emsission'=> "required",
+            'categorie_permis'=> "required"
+        ]);
+
+        
+        $chauffeur = Chauffeur::find($request->id);
+        $chauffeur->nom = $request->nom;
+        $chauffeur->prenom = $request->prenom;
+        $chauffeur->addresse = $request->addresse;
+        $chauffeur->tel = $request->tel;
+        $chauffeur->experience = $request->experience;
+        $chauffeur->num_permis = $request->num_permis;
+        $chauffeur->date_expiration = $request->date_expiration;
+        $chauffeur->date_emission = $request->date_emission;
+        $chauffeur->categorie_permis = $request->categorie_permis;
+        $chauffeur->update();
+
+        return redirect('/chauffeurs')->with('status : ','le chauffeur a été modifié avec succès.');
+
+    }
+    public function supprimer_apprenant($id){
+        $enlever = Chauffeur::find($id);
+        $enlever-> delete();
+        
+        return redirect('/chauffeurs')->with('status : ','le chauffeurs a bien été supprimé.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Chauffeur $chauffeur)
-    {
-        //
-    }
+
+
+
 }

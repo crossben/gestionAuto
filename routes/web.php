@@ -31,15 +31,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/create', [ChauffeurController::class, 'create']);
     Route::get('/index', [ChauffeurController::class, 'index'])->name('add_chauffeur');
     Route::post('/index', [ChauffeurController::class, 'store'])->name('store_chauffeur');
+
+
+    Route::get('/supprimer_chauffeur/{id}', [ChauffeurController::class, 'supprimer_chauffeur']);
+    Route::get('/modifier_chauffeur/{id}', [ChauffeurController::class, 'modifier_chauffeur']);
+    Route::post('/modifier/traitement', [ChauffeurController::class, 'modifier_chauffeur_traitement']);
+    Route::get('/chauffeurs', [ChauffeurController::class, 'index']);
+    Route::get('/ajouter', [ChauffeurController::class, 'ajouter_chauffeur'])->name("ajouter_chauffeur");
+    Route::post('/ajouter/traitement', [ChauffeurController::class, 'ajouter_chauffeur_traitement'])->name('ajouter_chauffeur_traitement');
 });
 
 // route pour les bails de chauffeur 
-Route::get('/supprimer_chauffeur/{id}',[ChauffeurController::class,'supprimer_chauffeur']);
-Route::get('/modifier_chauffeur/{id}',[ChauffeurController::class,'modifier_chauffeur']);
-Route::post('/modifier/traitement',[ChauffeurController::class,'modifier_chauffeur_traitement']);
-Route::get('/chauffeurs',[ChauffeurController::class,'index']);
-Route::get('/ajouter',[ChauffeurController::class,'ajouter_etudiant']);
-Route::post('/ajouter/traitement',[ChauffeurController::class,'ajouter_chauffeur_traitement']);
+
 
 
 require __DIR__ . '/auth.php';

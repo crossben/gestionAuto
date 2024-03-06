@@ -15,10 +15,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <h1 class="display-4àçi">Voitures</h1>
-                        <p class="lead"> YOBALEMA </p>
+                        <h1 class="display-block">Voitures</h1>
+                        <p class="lead">YOBALEMA</p>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -34,8 +33,8 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-md-12">
-                            <label> Modele: </label>
-                            <input type="text" name="modele" class="form-control" required value="{{ old('modele') }}">
+                            <label> Couleur: </label>
+                            <input type="text" name="couleur" class="form-control" required value="{{ old('couleur') }}">
                         </div>
                     </div>
                     <div class="row form-group">
@@ -43,6 +42,12 @@
                             <label> Matricule: </label>
                             <input type="text" name="matricule" class="form-control" required
                                 value="{{ old('matricule') }}">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label> Modele: </label>
+                            <input type="text" name="modele" class="form-control" required value="{{ old('modele') }}">
                         </div>
                     </div>
                     <div class="row form-group">
@@ -56,24 +61,6 @@
                             </form><br><br>
                             <div class="row form-group">
                                 <div class="col-md-12">
-                                    <label> Assurances: </label>
-                                    <select name="assurances">
-                                        <option value="axa">AXA</option>
-                                        <option value="saham">SAHAM</option>
-                                        <option value="rma">RMA</option>
-                                        <option value="atlanta">ATLANTA</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col-md-12">
-                                    <label> Numéro assurance: </label>
-                                    <input type="text" name="numassurances" class="form-control" required
-                                        value="{{ old('numassurances') }}">
-                                </div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col-md-12">
                                     <label> Type: </label>
                                     <select name="type">
                                         <option value="berlin">Berline</option>
@@ -85,6 +72,35 @@
                                     </select>
                                 </div>
                             </div>
+                            </br>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <label> Assurances: </label>
+                                    <select name="assurances">
+                                        <option value="axa">AXA</option>
+                                        <option value="saham">SAHAM</option>
+                                        <option value="rma">RMA</option>
+                                        <option value="atlanta">ATLANTA</option>
+                                    </select>
+                                </div>
+                            </div>
+                            </br>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <label> Numéro assurance: </label>
+                                    <input type="text" name="numassurances" class="form-control" required
+                                        value="{{ old('numassurances') }}">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <div class="col-md-12">
+                                        <label> Nombre de places: </label>
+                                        <input type="text" name="nombreplaces" class="form-control" required
+                                            value="{{ old('nombreplaces') }}">
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row form-group">
                                 <div class="col-md-12">
                                     <label> Kilométrage: </label>
@@ -94,38 +110,22 @@
                             </div>
                             <div class="row form-group">
                                 <div class="col-md-12">
-                                    <div class="row form-group">
-                                        <div class="col-md-12">
-                                            <label> Nombre de places: </label>
-                                            <input type="text" name="nombreplaces" class="form-control" required
-                                                value="{{ old('nombreplaces') }}">
-                                        </div>
-                                    </div>
+                                    <label> Puissance: </label> <br>
+                                    <input type="text" name="puissance" class="form-control" required
+                                        value="{{ old('puissance') }}"><br><br>
                                 </div>
-                                <div class="row form-group">
-                                    <div class="col-md-12">
-                                        <label> Puissance: </label> <br>
-                                        <input type="text" name="puissance" class="form-control" required
-                                            value="{{ old('puissance') }}"> <br><br>
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col-md-12">
-                                        <label> Image: </label>
-                                        <input type="file" name="photos" class="form-control" required>
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col-md-12">
-                                        <button type="submit" class="btn btn-success "> Ajouter </button>
-                                        <br> <br>
-                                    </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-success">Ajouter</button>
+                                    <br><br>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </form>
             </div>
+            </form>
         </div>
+    </div>
     </div>
 @endsection

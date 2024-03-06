@@ -22,7 +22,7 @@ class VehiculeController extends Controller
      */
     public function create()
     {
-        return view("auth.vehicules.add_vehicules");
+        return view("auth.vehicules.add_vehicule");
         
     }
 //Search vehicules 
@@ -42,19 +42,15 @@ class VehiculeController extends Controller
     {
         $vehicules =new Vehicule();
         $vehicules->marque=$request->input('marque');
-        /**$vehicules->couleur=$request->input('#e66465');*/
+        $vehicules->couleur=$request->input('#e66465');
         $vehicules->matricule=$request->input('matricule');
         $vehicules->modele=$request->input('modele');
         $vehicules->carburant=$request->input('carburant');
         $vehicules->type=$request->input('type');
         $vehicules->assurances=$request->input('assurances');
         $vehicules->numassurances=$request->input('numassurances') ;
-        /**$vehicules->type=$request->input('debutassurance');
-        $vehicules->type=$request->input('finassurance');*/
-       
-        
-
-
+        $vehicules->type=$request->input('debutassurance');
+        $vehicules->type=$request->input('finassurance');
         $vehicules->nombreplaces=$request->input('nombreplaces');
         $vehicules->kilometrage=$request->input('kilometrage');
         $vehicules->puissance=$request->input('puissance');
@@ -65,7 +61,7 @@ class VehiculeController extends Controller
         try{
             $vehicules->save();
         }catch(\Exception $e) {
-            dd($e);
+            
         }
         session()->flash('success', 'La voiture est créée!!');
         return redirect ('vehicules');
@@ -74,7 +70,7 @@ class VehiculeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show()
     {
         $listvehicules = Vehicule::all();
         return view('auth.vehicules.detail',['vehicules'=> $listvehicules]);

@@ -42,12 +42,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/ajouter/traitement', [ChauffeurController::class, 'ajouter_chauffeur_traitement'])->name('ajouter_chauffeur_traitement');
 
     //Vehicule routes
-    Route::get('/create', [VehiculeController::class, 'create']);
+    Route::get('/create', [VehiculeController::class, 'create'])->name("add_vehicule_form");
     Route::get('/index', [VehiculeController::class, 'index'])->name('add_vehicule');
-    Route::post('/index', [VehiculeController::class, 'index'])->name('store_vehicule');
-    Route::get('/edit', [VehiculeController::class, 'edit'])->name('edit_vehicule');
+    Route::get('/vehicules', [VehiculeController::class, 'show'])->name('vehicules');
+    // Route::get('/edit', [VehiculeController::class, 'edit'])->name('edit_vehicule');
     Route::get('/update', [VehiculeController::class, 'update'])->name('update');
     Route::get('/destroy', [VehiculeController::class, 'destroy'])->name('destroy_vehicule');
+    Route::post('/destroy', [VehiculeController::class, 'store'])->name('vehicules_traitement');
 });
 
 

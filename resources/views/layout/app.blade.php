@@ -46,7 +46,7 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="{{route('ajouter_chauffeur')}}">something else</a></li>
+                                <li><a class="dropdown-item" href="{{route('add_vehicule_form')}}">Ajouter un vehicule</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">

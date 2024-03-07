@@ -19,7 +19,7 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><b>YOBALEMA</b></a>
+                <a class="navbar-brand" href="/"><b>YOBALEMA</b></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -28,13 +28,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+                            <a class="nav-link active" aria-current="page" href="/">Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">Sign in</a>
+                            <a class="nav-link" href="{{ route('register') }}">Inscrription</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Log in</a>
+                            <a class="nav-link" href="{{ route('login') }}">Connexion</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -43,10 +43,12 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{ route('ajouter_chauffeur') }}">Ajouter Chauffeur</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/chauffeurs') }}">Voir les chauffeurs</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li><a class="dropdown-item" href="{{route('add_vehicule_form')}}">Ajouter un vehicule</a></li>
+                                <li><a class="dropdown-item" href="{{route('vehicules')}}">Voir les vehicules</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">

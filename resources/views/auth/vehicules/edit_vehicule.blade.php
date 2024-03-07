@@ -7,10 +7,6 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h1 class="display-4">VEHICULES</h1>
-                        <p class="lead"> YOBALEMA </p>
-                    </div>
-                    <div class="col-md-6">
-                        <img src="img/car1.jpg" alt="car1">
                     </div>
                 </div>
             </div>
@@ -18,25 +14,29 @@
         <div class="row">
             <div class="col-md-6">
                 <form action="{{ url('vehicules/' . $vehicules->id) }}" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="_method" value="PUT">
-                    <input type="hidden" name="_method" value="PUT">
                     @csrf
                     <div class="row form-group">
-                        <div class="col-md-12"> col-md-12">
+                        <div class="col-md-12">
                             <label> Marque: </label>
                             <input type="text" name="marque" class="form-control" value="{{ $vehicules->marque }}">
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-md-12">
-                            <label> Modele: </label>
-                            <input type="text" name="modele" class="form-control" value="{{ $vehicules->modele }}">
+                            <label> Couleur: </label>
+                            <input type="text" name="couleur" class="form-control" value="{{ $vehicules->couleur }}">
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-md-12">
                             <label> Matricule: </label>
                             <input type="text" name="matricule" class="form-control" value="{{ $vehicules->matricule }}">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label> Modele: </label>
+                            <input type="text" name="modele" class="form-control" value="{{ $vehicules->modele }}">
                         </div>
                     </div>
                     <div class="row form-group">
@@ -55,6 +55,27 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-md-12">
+                            <label> Assurance: </label>
+                            <input type="text" name="assurances" class="form-control"
+                                value="{{ $vehicules->assurances }}"> <br>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label> Numero assurance: </label>
+                            <input type="text" name="numassurances" class="form-control"
+                                value="{{ $vehicules->numassurances }}"> <br>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label> Nombre places: </label>
+                            <input type="text" name="nombreplaces" class="form-control"
+                                value="{{ $vehicules->nombreplaces }}"> <br>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
                             <label> Kilométrage: </label>
                             <input type="text" name="kilometrage" class="form-control"
                                 value="{{ $vehicules->kilometrage }}"> <br>
@@ -62,22 +83,9 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-md-12">
-                            <label> Nombre de places: </label>
-                            <input type="text" name="nombreplaces" class="form-control"
-                                value="{{ $vehicules->nombreplaces }}"> <br>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-md-12">
                             <label> Puissance: </label> <br>
                             <input type="text" name="puissance" class="form-control" value="{{ $vehicules->puissance }}">
                             <br><br>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-md-12">
-                            <label> Image: </label>
-                            <input type="file" name="photos" class="form-control" required>
                         </div>
                     </div>
                     <div class="row form-group">

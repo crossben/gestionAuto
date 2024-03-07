@@ -9,7 +9,7 @@
                         {{ session()->get('success') }}
                     </div>
                 @endif <br> <br> <br>
-                <h1> Caractéristiques de la voiture </h1> <br> <br> <br>
+                <h1> Caractéristiques des la voiture </h1> <br> <br> <br>
                 <div class="pull-right">
                     <table class="table">
                         <thead>
@@ -51,10 +51,9 @@
                                     <td>
                                         <form action="{{ url('vehicules/' . $vehicule->id) }}" method="post">
                                             @csrf
-                                            {{ method_field('DELETE') }}
                                             <a href="{{ route('edit_vehicule', $vehicule->id) }}"class="btn btn-default">Editer
                                             </a>
-                                            <button href="{{ url('vehicules/detail') }}" type="submit"
+                                            <button href="{{ route('supprimer_vehicule',  $vehicule->id) }} }}" type="submit"
                                                 class="btn btn-danger">Supprimer </button>
                                         </form>
                                     </td>

@@ -53,7 +53,6 @@ class ChauffeurController extends Controller
 
     public function modifier_chauffeur($id) {
         $changer = Chauffeur::find($id);
-
         return view('modifier',compact('changer'));
     }
     public function modifier_chauffeur_traitement(Request $request){
@@ -85,7 +84,7 @@ class ChauffeurController extends Controller
         return redirect('/chauffeurs')->with('status : ','le chauffeur a été modifié avec succès.');
 
     }
-    public function supprimer_apprenant($id){
+    public function supprimer_chauffeur($id){
         $enlever = Chauffeur::find($id);
         $enlever-> delete();
         

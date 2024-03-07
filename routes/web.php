@@ -47,7 +47,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/vehicules', [VehiculeController::class, 'show'])->name('vehicules');
     Route::get('/edit/{id}', [VehiculeController::class, 'edit'])->name('edit_vehicule');
     Route::get('/update/{id}', [VehiculeController::class, 'update'])->name('update');
-    Route::get('/destroy/{id}', [VehiculeController::class, 'destroy'])->name('destroy_vehicule');
+    Route::post('/supprimer/{id}', [VehiculeController::class, 'supprimer'])->name('supprimer_vehicule');
     Route::post('/store', [VehiculeController::class, 'store'])->name('vehicules_traitement');
 });
 

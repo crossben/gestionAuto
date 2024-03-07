@@ -4,15 +4,13 @@
     <div class="container mt-5 pt-5">
         <div class="row">
             <div class="col s12">
-                <h1>
-                    <marquee>LISTES DES CHAUFFEUR</marquee>
+                <h1 class="text-center">
+                    <p>LISTES DES CHAUFFEUR</p>
                 </h1>
                 <hr>
-                <a href="/ajouter" class=" btn btn-secondary ">Ajouter un chauffeur</a>
-                <form method="GET">
-                    <input type="text" name ="query" placeholder="Rechercher">
-                    <button type="submit" class=" btn btn-secondary">Rechercher</button>
-                </form>
+                <div class="text-center">
+                    <a href="/ajouter" class=" btn btn-secondary ">Ajouter un chauffeur</a>
+                </div>
                 <hr>
                 @if (session('status'))
                     <div class="alert alert-success">
@@ -20,8 +18,7 @@
 
                     </div>
                 @endif
-                <table class="table table-responsive table-striped-columns" style="border: 1px solid blackq
-                    ">
+                <table class="table table-responsive table-striped-columns" style="border: 1px solid black">
                     <thead>
                         <tr>
                             <th>#</th>

@@ -77,7 +77,7 @@ class VehiculeController extends Controller
     {
         $vehicules = Vehicule::find($id);
 
-        return view('auth.vehicules.edit', ['vehicules' => $vehicules]);
+        return view('auth.vehicules.edit_vehicule', ['vehicules' => $vehicules]);
     }
 
     /**
@@ -109,10 +109,14 @@ class VehiculeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Vehicule $vehicules, $id)
+    public function supprimer($id)
     {
-        $vehicules = Vehicule::find($id);
-        $vehicules->delete();
-        return redirect('vehicules');
+        try{
+            $vehicules = Vehicule::find($id);
+            $vehicules->delete();
+            return redirect('vehicules');
+        }catch(\Exception $e){
+            ddd($e);
+        }
     }
 }

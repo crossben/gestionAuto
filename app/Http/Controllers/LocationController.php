@@ -12,7 +12,7 @@ class LocationController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -20,7 +20,7 @@ class LocationController extends Controller
      */
     public function create()
     {
-        //
+        return view("auth.locations.location");
     }
 
     /**
@@ -28,7 +28,22 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'lieu_depart' => 'required',
+            'lieu_arrivee' => 'required',
+            'date' => "required",
+            'heure_debut' => "required",
+            'heure_fin' => "required",
+        ]);
+
+        $location = new Location();
+        $location->lieu_depart = $request->nom;
+        $location->lieu_arrivee = $request->prenom;
+        $location->date = $request->adresse;
+        $location->heure_depart = $request->tel;
+        $location->heure_fin = $request->experience;
+        $location->save();
+        return redirect('/locations')->with('status : ', 'la location a été ajouté avec succès.');
     }
 
     /**
@@ -36,30 +51,53 @@ class LocationController extends Controller
      */
     public function show(Location $location)
     {
-        //
+        return view("auth.locations.locationList");
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Location $location)
+    public function edit($id)
     {
-        //
+        $location = Location::find($id);
+        return view('auth.locations.edit_location', ['locations' => $location]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Location $location)
+    public function update(Request $request, $id)
     {
-        //
+        
+        $location = Location::find($id);
+        $location = new Location();
+        $location->lieu_depart = $request->nom;
+        $location->lieu_arrivee = $request->prenom;
+        $location->date = $request->adresse;
+        $location->heure_depart = $request->tel;
+        $location->heure_fin = $request->experience;
+        $location->save();
+
+        try {
+            $location->save();
+            session()->flash('success', 'la location a ete modifier!!');
+            return redirect('/locations');
+        } catch (\Exception $e) {
+            dd($e);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Location $location)
+    public function supprimer($id)
     {
-        //
+        try{
+            $location = Location::find($id);
+            $location->delete();
+            return redirect('/locations');
+        }catch(\Exception $e){
+            ddd($e);
+        }
     }
 }

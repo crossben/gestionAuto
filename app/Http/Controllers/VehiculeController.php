@@ -100,7 +100,7 @@ class VehiculeController extends Controller
         try {
             $vehicules->save();
             session()->flash('success', 'La voiture est crée!!');
-            return redirect('vehicules');
+            return redirect('/vehicules');
         } catch (\Exception $e) {
             dd($e);
         }
@@ -114,7 +114,7 @@ class VehiculeController extends Controller
         try{
             $vehicules = Vehicule::find($id);
             $vehicules->delete();
-            return redirect('vehicules');
+            return redirect('/vehicules');
         }catch(\Exception $e){
             ddd($e);
         }

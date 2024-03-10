@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VehiculeController;
 use App\Http\Controllers\Auth\ChauffeurController;
+use App\Http\Controllers\LocationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/update/{id}', [VehiculeController::class, 'update'])->name('update');
     Route::post('/supprimer/{id}', [VehiculeController::class, 'supprimer'])->name('supprimer_vehicule');
     Route::post('/store', [VehiculeController::class, 'store'])->name('vehicules_traitement');
+
+    //Location routes
+    Route::get('/add_location', [LocationController::class, 'create'])->name("add_location_form");
+    Route::get('/locations', [LocationController::class, 'show'])->name('locations');
+    Route::get('/edit_location/{id}', [LocationController::class, 'edit'])->name('edit_location');
+    Route::get('/update_location/{id}', [LocationController::class, 'update'])->name('update_location');
+    Route::post('/supprimer_location/{id}', [LocationController::class, 'supprimer'])->name('supprimer_location');
+    Route::post('/add', [LocationController::class, 'store'])->name('location_traitement');
 });
 
 

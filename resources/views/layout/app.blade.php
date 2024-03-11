@@ -49,10 +49,12 @@
                                 </li>
                                 <li><a class="dropdown-item" href="{{route('add_vehicule_form')}}">Ajouter un vehicule</a></li>
                                 <li><a class="dropdown-item" href="{{route('vehicules')}}">Voir les vehicules</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="{{route('add_location_form')}}">Ajouter une location</a></li>
+                                <li><a class="dropdown-item" href="{{route('locations')}}">Voir les locations</a></li>
                             </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-disabled="true">zbi</a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">
@@ -63,13 +65,9 @@
             </div>
         </nav>
     </header>
-
-
     <main>
         @yield('content')
     </main>
-    
-
 
     <footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
         <div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary">
@@ -79,10 +77,10 @@
                         href="/" aria-label="Chapiock">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="d-block me-2"
                             viewBox="0 0 118 94" role="img">
-                            <title>Chapiock</title>
+                            <title>YOBALEMA</title>
                             <path />
                         </svg>
-                        <span class="fs-5">w3tech-vision</span>
+                        <span class="fs-5">YOBALEMA</span>
                     </a>
                     <ul class="list-unstyled small">
                         <li class="mb-2">Toujours vers l'excelence</li>

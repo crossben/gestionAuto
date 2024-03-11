@@ -93,5 +93,14 @@ class ChauffeurController extends Controller
 
 
 
-
+    function validateNumPermis($chauffeur)
+    {
+        $chauffeur = Chauffeur::firstOrNew(['num_permis' => $chauffeur]);
+    
+        if ($chauffeur->exists) {
+            return view('Ce numéro existe déjà'); 
+        } else {
+            return redirect('/chauffeurs')->with('Ce numéro est unique'); 
+        }
+    }
 }

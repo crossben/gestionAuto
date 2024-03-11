@@ -5,7 +5,8 @@
         <h1>Afficahge des locatoins</h1>
 
 
-        <table class="table table-striped">
+<table class="table table-striped">
+    @foreach ($location  as $location)
             <thead>
                 <tr>
                     <th>lieu depart</th>
@@ -17,22 +18,14 @@
             </thead>
             <div class="tbody">
                 <tr>
-                    <td>Dakar</td>
-                    <td>Rufisque</td>
-                    <td>le 12 mars 2013</td>
-                    <td>12:45 PM</td>
-                    <td>15:45 PM</td>
+                    <td>{{$location->lieu_depart}}</td>
+                    <td>{{$location->lieu_arrivee}}</td>
+                    <td>{{$location->date}}</td>
+                    <td>{{$location->heure_debut}}</td>
+                    <td>{{$location->heure_fin}}</td>
                 </tr>
             </div>
-            <tfoot>
-                <tr>
-                    <th>lieu depart</th>
-                    <th>lieu arrivee</th>
-                    <th>date</th>
-                    <th>heure debut</th>
-                    <th>heure fin</th>
-                </tr>
-            </tfoot>
-        </table>
+    @endforeach
+</table>
     </div>
 @endsection

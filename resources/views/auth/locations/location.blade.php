@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container mt-5 pt-5">
-        <form action="{{ route('location_traitement') }}">
+        <form action="{{ route('location_traitement') }}" method="post">
             @csrf
             <h1>Ajouter une location</h1>
 

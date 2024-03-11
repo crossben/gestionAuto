@@ -37,11 +37,12 @@ class LocationController extends Controller
         ]);
 
         $location = new Location();
-        $location->lieu_depart = $request->nom;
-        $location->lieu_arrivee = $request->prenom;
-        $location->date = $request->adresse;
-        $location->heure_depart = $request->tel;
-        $location->heure_fin = $request->experience;
+        $location = new Location();
+        $location->lieu_depart = $request->lieu_depart;
+        $location->lieu_arrivee = $request->lieu_arrivee;
+        $location->date = $request->date;
+        $location->heure_debut = $request->heure_debut;
+        $location->heure_fin = $request->heure_fin;
         $location->save();
         return redirect('/locations')->with('status : ', 'la location a été ajouté avec succès.');
     }
@@ -51,7 +52,7 @@ class LocationController extends Controller
      */
     public function show(Location $location)
     {
-        return view("auth.locations.locationList");
+        return view("auth.locations.locationsList");
     }
 
     /**
@@ -71,11 +72,11 @@ class LocationController extends Controller
         
         $location = Location::find($id);
         $location = new Location();
-        $location->lieu_depart = $request->nom;
-        $location->lieu_arrivee = $request->prenom;
-        $location->date = $request->adresse;
-        $location->heure_depart = $request->tel;
-        $location->heure_fin = $request->experience;
+        $location->lieu_depart = $request->lieu_depart;
+        $location->lieu_arrivee = $request->lieu_arrivee;
+        $location->date = $request->date;
+        $location->heure_depart = $request->heure_depart;
+        $location->heure_fin = $request->heure_fin;
         $location->save();
 
         try {

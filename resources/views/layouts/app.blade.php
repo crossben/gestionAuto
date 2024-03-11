@@ -41,7 +41,30 @@
           </tr>
         </thead>
         <tbody id="ride-list">
-          <!-- Ride list will be populated here -->
+         <tr>
+            <td>18/09/2016</td>
+            <td>12:45  AM - Station A</td>
+            <td>15:56 PM  - Station B</td>
+            <td>En cours</td>
+         </tr>
+         <tr>
+            <td>18/09/2016</td>
+            <td>12:45  AM - Station A</td>
+            <td>15:56 PM  - Station B</td>
+            <td>En cours</td>
+         </tr>
+         <tr>
+            <td>18/09/2016</td>
+            <td>12:45  AM - Station A</td>
+            <td>15:56 PM  - Station B</td>
+            <td>En cours</td>
+         </tr>
+         <tr>
+            <td>18/09/2016</td>
+            <td>12:45  AM - Station A</td>
+            <td>15:56 PM  - Station B</td>
+            <td>En cours</td>
+         </tr>
         </tbody>
       </table>
     </div>
